@@ -1,5 +1,5 @@
 
-puts "Please type in b for the basic calculator, a for the advanced calculator and bmi for bmi calculator"
+puts "Please type in b for the basic calculator, a for the advanced calculator, bmi for bmi calculator and trip for the Trip Calculator"
 type = gets.chomp
 
 if type == "b"
@@ -48,4 +48,26 @@ elsif type == "bmi"
     massFloat = mass.to_f
     puts "Answer #{(massFloat / (heightInt ** 2))*703}"
   end
+
+elsif type == "trip"
+  puts "Please enter distance to travel in miles"
+  distance = gets.chomp
+  distanceFloat= distance.to_f
+  puts "Please enter your fuel effieciency in miles per gallon"
+  mpg = gets.chomp
+  mpgFloat = mpg.to_f
+  puts "Please enter the cost per gallon in GBP"
+  cost = gets.chomp
+  costFloat = cost.to_f
+  puts "Please enter your speed in MPH"
+  speed = gets.chomp
+  speedFloat = speed.to_f
+  puts "Your Journey time will be #{distanceFloat/speedFloat} hours"
+  if speed < "60"
+    puts "The price of your trip will be #{(distanceFloat/mpgFloat) * costFloat} GBP"
+  end
+  # if speed > "60" && mpg > 0
+  #   speed.each do
+  #
+  #   end
 end
