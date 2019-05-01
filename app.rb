@@ -64,10 +64,20 @@ elsif type == "trip"
   speedFloat = speed.to_f
   puts "Your Journey time will be #{distanceFloat/speedFloat} hours"
   if speed < "60"
-    puts "The price of your trip will be #{(distanceFloat/mpgFloat) * costFloat} GBP"
+    puts "The price of your trip will be #{((distanceFloat/mpgFloat) * costFloat).round 2} GBP"
   end
-  # if speed > "60" && mpg > 0
-  #   speed.each do
-  #
-  #   end
+  if speed > "60"
+    mpgReduce = speedFloat - 60
+    mpgFloat += -(2 * mpgReduce)
+    mpgString = mpgFloat.to_s
+    puts "new fuel effieciency is #{mpgString} miles per gallon"
+    puts "The price of your trip will be #{((distanceFloat/mpgFloat) * costFloat).round 2} GBP"
+    if mpgFloat < 5
+      mpgFloat = 5.0
+      mpgString = mpgFloat.to_s
+      puts "Minimum mpg is #{mpgFloat}"
+    end
+  else
+    mpgSpring = mpgFloat.to_s
+  end
 end
